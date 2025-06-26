@@ -61,6 +61,7 @@ public class OrdersController {
                 OrderLineItem orderLineItem=new OrderLineItem(finalOrder.getOrderId(),product.getProductId(),product.getPrice(),ShoppingCartItem.getQuantity());
                 orderLineItemDao.add(orderLineItem);
             });
+            shoppingCartDao.delete(userId);
             return order;
         }
         catch(Exception e)
